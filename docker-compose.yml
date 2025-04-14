@@ -1,26 +1,36 @@
-version: "3"
-
 services:
-  web:
-    container_name: web
+  filesystem:
+    container_name: filesystem
     build:
-      context: .
-      dockerfile: ./apps/web/Dockerfile
-    restart: always
-    ports:
-      - 3000:3000
-    networks:
-      - app_network
-  api:
-    container_name: api
-    build:
-      context: .
-      dockerfile: ./apps/api/Dockerfile
-    restart: always
-    ports:
-      - 3001:3001
-    networks:
-      - app_network
+      # context: ./apps/filesystem
+      dockerfile: ./apps/filesystem/Dockerfile
+
+  # git:
+  #   container_name: git
+  #   build:
+  #     # context: ./apps/git
+  #     dockerfile: ./apps/git/Dockerfile
+  #   # restart: always
+  #   # ports:
+  #   #   - 3000:3000
+  #   # networks:
+  #   #   - app_network
+  # sqlite:
+  #   container_name: sqlite
+  #   build:
+  #     # context: ./apps/sqlite
+  #     dockerfile: ./apps/sqlite/Dockerfile
+  #   # restart: always
+  #   # ports:
+  #   #   - 3001:3001
+  #   # networks:
+  #   #   - app_network
+  # time:
+  #   container_name: time
+  #   build:
+  #     # context: ./apps/time
+  #     dockerfile: ./apps/time/Dockerfile
+
 
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
